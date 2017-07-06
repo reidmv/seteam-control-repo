@@ -7,4 +7,5 @@ hieradata/nodes/example-puppet-master.yaml
 .DS_Store
 /.bundle
 /.vagrant
+/log
 Gemfile.lock

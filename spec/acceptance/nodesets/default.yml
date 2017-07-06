@@ -1,0 +1,30 @@
+HOSTS:
+  centos-7-agent:
+    roles:
+      - agent
+      - default
+    platform: el-7-x86_64
+    hypervisor: openstack
+    image: centos_7_x86_64
+    flavor: g1.large
+    user_data: |
+      #!/bin/bash
+      sed -i 's/Defaults    requiretty//g' /etc/sudoers
+      echo 0 > /sys/fs/selinux/enforce
+      unalias cp
+      cp -fpr ~centos/.ssh/authorized_keys ~root/.ssh/
+      chown root: ~root/.ssh/authorized_keys
+      sed -i 's/^#PermitRootLogin/PermitRootLogin/g' /etc/ssh/sshd_config
+      service sshd restart
+
+CONFIG:
+  nfs_server: none
+  consoleport: 443
+  openstack_api_key: <insert_password>
+  openstack_username: <insert_username>
+  openstack_auth_url: https://slice-pdx1-prod.ops.puppetlabs.net:5000/v2.0/tokens
+  openstack_tenant: <insert_tenant>
+  openstack_network : network0
+  openstack_keyname : <insert_keyname>
+  security_group: ['sg0', 'default']
+
