@@ -101,5 +101,8 @@ node default {
   #   setting => 'use_cached_catalog',
   #   value   => 'true',
   # }
-
+  if !empty( $trusted['extensions']['pp_role'] ) {
+        $role = $trusted['extensions']['pp_role']
+            include "role::${trusted['extensions']['pp_role']}"
+              }
 }

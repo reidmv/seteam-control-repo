@@ -8,4 +8,6 @@ hieradata/nodes/example-puppet-master.yaml
 /.bundle
 /.vagrant
 /log
+/tmp
+/pe_conf
 Gemfile.lock
