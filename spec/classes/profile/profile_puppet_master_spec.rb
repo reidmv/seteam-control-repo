@@ -7,11 +7,10 @@ describe 'profile::puppet::master' do
           facts
         end
 
-        let(:pre_condition) {'
-          service { "pe-puppetserver":
-            ensure     => "running",
-          }
-        '}
+        let(:pre_condition) {[
+          'service { "pe-puppetserver": ensure     => "running", } ',
+          'class pe_repo::platform::ubuntu_1404_amd64 {}',
+        ]}
 
         if facts[:kernel] != 'Linux'
           context "unsupported OS" do

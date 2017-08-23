@@ -10,6 +10,7 @@ class profile::puppet::master {
   include ::profile::puppet::master::firewall
   include ::profile::puppet::master::hiera
   include ::profile::puppet::master::node_manager
+  include ::profile::puppet::master::puppetfactory
 
   firewall { '100 allow Puppet master access':
     dport  => '8140',
@@ -43,6 +44,18 @@ class profile::puppet::master {
 
   firewall { '100 allow PE Console access':
       dport  => '443',
+      proto  => tcp,
+      action => accept,
+  }
+
+  firewall { '100 allow Abalone Console access':
+      dport  => '4200',
+      proto  => tcp,
+      action => accept,
+  }
+
+  firewall { '100 allow Port 80 access':
+      dport  => '80',
       proto  => tcp,
       action => accept,
   }

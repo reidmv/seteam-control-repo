@@ -33,7 +33,7 @@ mod 'puppetlabs/vcsrepo', '1.5.0'
 mod 'puppetlabs/sqlserver', '1.2.0'
 
 # Forge Community Modules
-mod 'ghoneycutt-ssh', '3.52.0'
+mod 'attachmentgenie-ssh', '2.1.0'
 mod 'puppet-archive', '1.3.0'
 mod 'garethr/docker', '5.3.0'
 mod 'trlinkin/domain_membership', '1.1.2'
@@ -50,7 +50,7 @@ mod 'lwf/remote_file', '1.1.3'
 mod 'ajjahn/samba', '0.5.0'
 mod 'puppet-staging', '2.2.0'
 mod 'ayohrling-local_security_policy', '0.6.1'
-mod 'thias-sysctl', '1.0.6'
+mod 'fiddyspence-sysctl', '1.1.0'
 mod 'reidmv/unzip', '0.1.2'
 mod 'andulla/vsphere_conf', '0.0.9'
 mod 'biemond/wildfly', '2.0.3'
@@ -72,6 +72,18 @@ mod 'gogs',
 mod 'bodgit-rngd', '2.0.0'
 mod 'jonono-auditpol', '0.1.2'
 mod 'nexcess-auditd', '2.0.0'
+
 mod 'demo_cis',
   :git => 'https://github.com/ipcrm/ipcrm-demo_cis.git',
-  :ref => 'dee17aa1cd6619290ed6657d8f70dbfcafbb3b08'
+  :ref => '42db4bb93b81f567566393b4d32825f667d4eb6b'
+
+mod 'puppetfactory',
+  :git => 'https://github.com/ipcrm/pltraining-puppetfactory.git',
+  :ref => 'master'
+
+mod 'arusso/stunnel'
+mod 'puppetlabs/pe_puppetserver_gem'
+mod 'pltraining/dockeragent'
+mod 'pltraining/userprefs'
+mod 'pltraining/rbac'
+mod 'binford2k/abalone'

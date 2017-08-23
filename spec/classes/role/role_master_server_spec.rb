@@ -8,9 +8,10 @@ describe 'role::master_server' do
           facts
         end
 
-        let(:pre_condition) {'
-          service {"pe-puppetserver": ensure => running }
-        '}
+        let(:pre_condition) {[
+          'service { "pe-puppetserver": ensure     => "running", } ',
+          'class pe_repo::platform::ubuntu_1404_amd64 {}',
+        ]}
 
         if Gem.win_platform?
           context "unsupported OS" do

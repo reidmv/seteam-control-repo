@@ -15,12 +15,12 @@ class profile::platform::compliance::hipaa::linux {
 
   # (iii) Automatic logoff (Addressable)
   # Set time limit for active but idle ssh sessions: 10 minutes
-  # Set login grace time to 60
-  class{'::ssh':
-    permit_root_login            => 'no',
-    sshd_client_alive_count_max  => '10',
-    sshd_client_alive_interval   => '60',
-    sshd_config_login_grace_time => '60',
+  class{'::ssh::server':
+    permit_root_login       => 'no',
+    client_alive_count_max  => '10',
+    client_alive_interval   => '60',
+    password_authentication => 'yes',
+    use_pam                 => 'yes',
   }
 
   # Add Auditd configuration
